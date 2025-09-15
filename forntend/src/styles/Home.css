@@ -1,6 +1,49 @@
+
+.top-left-link {
+  position: absolute;  /* take it out of normal flow */
+  top: 10px;           /* distance from top */
+  right: 10px;          /* distance from left */
+  text-decoration: none; /* remove underline */
+  font-weight: bold;
+  color: #007BFF;      /* nice blue, you can change */
+  padding: 6px 12px;   /* clickable padding */
+  border-radius: 6px;  /* smooth edges */
+  background: #f0f0f0; /* light background */
+  transition: background 0.2s ease; /* hover effect */
+}
+
+.top-left-link:hover {
+  background: #ddd;
+}
+
 /* Container for the whole page */
 div {
   font-family: Arial, sans-serif;
+}
+
+/* User info section */
+.user-info {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 4px solid #007bff;
+}
+
+.user-info h1 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.admin-badge {
+  background-color: #284ca7;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0;
 }
 
 /* Styles for the notes section */

@@ -1,14 +1,12 @@
 import { useState } from 'react'
 import api from '../api'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../constants'
-import Register from '../pages/register'
-import "../styles/form.css"
 
 import "../styles/Form.css"
 import LoadingIndicator from './LoadingInd'
 
-function Form({ route, method }) {        
+function Form({ route, method, showRegisterLink, showLoginLink }) {        
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
@@ -37,36 +35,50 @@ function Form({ route, method }) {
         } finally {
 
             setLoading(false)
-
+            
         }   
     }
 
     return (
-        <form onSubmit= {handleSubmit} className='form-container'>
-            <h1> {name} </h1>
+        <form onSubmit={handleSubmit} className='form-container'>
+            <h1>{name}</h1>
             <input 
                 className='form-input'
                 type='text'   
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder='Username'
-        /> 
+            /> 
 
-        <input 
-            className='form-input'
-            type='password'   
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder='Password'
-        /> 
+            <input 
+                className='form-input'
+                type='password'   
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder='Password'
+            /> 
 
-        {loading && <LoadingIndicator/>}
+            {loading && <LoadingIndicator/>}
 
-        <button className='form-button' type='submit'> 
-            {name}
-        </button>
+            <button className='form-button' type='submit'> 
+                {name}
+            </button>
+
+            {showRegisterLink && (
+                <p>
+                    <Link to="/register">Create user</Link>
+                </p>
+            )}
+
+            {showLoginLink && (
+                <p>
+                    <Link to="/login">Login instead</Link>
+                </p>
+            )}
+
+            <footer>logins:<br/> admin - admin123 <br/> 1 - 123</footer>
         </form>
-        )
+    )
 }
 
 export default Form
