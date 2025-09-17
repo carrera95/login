@@ -66,17 +66,16 @@ function Form({ route, method, showRegisterLink, showLoginLink }) {
 
             {showRegisterLink && (
                 <p>
-                    <Link to="/register">Create user</Link>
+                    <Link to="/register">Crear un usuario</Link>
                 </p>
             )}
 
             {showLoginLink && (
                 <p>
-                    <Link to="/login">Login instead</Link>
+                    <Link to="/login">Iniciar sesión</Link>
                 </p>
             )}
 
-            <footer>logins:<br/> admin - admin123 <br/> 1 - 123</footer>
         </form>
     )
 }

@@ -37,18 +37,18 @@ function Home(){
 
     const deleteNode = (id) => {
         if (!isAdmin) {
-            alert("Only administrators can delete notes")
+            alert("Only administrators can delete notes") 
             return
         }
         
-        if (window.confirm("Are you sure you want to delete this note?")) {
+        if (window.confirm("¿Seguro que quieres eliminar esta nota?")) {
             api.delete(`/api/notes/delete/${id}/`)
                 .then((res) => {
                     if (res.status === 204) {
-                        alert("Note deleted successfully")
+                        alert("Nota eliminada")
                         getNotes() 
                     } else {
-                        alert("Failed to delete note") 
+                        alert("Error al eliminar la nota") 
                     }
                 })
                 .catch((error) => {
@@ -68,12 +68,12 @@ function Home(){
             .post("/api/notes/", {content, title})
             .then((res) => {
                 if(res.status === 201) {
-                    alert("Note created successfully")
+                    alert("Nota creada")
                     setTitle("") 
                     setContent("")
                     getNotes() 
                 } else {
-                    alert("Failed to create note")
+                    alert("Error al crear nota")
                 }
             })
             .catch((err) => {
@@ -86,13 +86,13 @@ function Home(){
         <div>
             <p><a href="../logout" class="top-left-link">LogOut</a></p>
             <div className="user-info">
-                <h1>Welcome, {currentUser?.username}!</h1>
-                {isAdmin && <p className="admin-badge">Administrator</p>}
+                <h1>¡Bienvenid@, {currentUser?.username}!</h1>
+                {isAdmin && <p className="admin-badge">Administrador</p>}
             </div>
             
             <div>
-                <h2>All Notes</h2>
-                <p>Showing {notes.length} note(s)</p>
+                <h2>Notas</h2>
+                <p>Mostrando {notes.length} nota(s)</p>
                 {notes.map((note) => (
                     <Note 
                         note={note} 
@@ -104,9 +104,9 @@ function Home(){
                 ))}
             </div>
 
-            <h2>Create a New Note</h2>
+            <h2>Crear una nueva nota</h2>
             <form onSubmit={createNote}>
-                <label htmlFor="title">Title</label>
+                <label htmlFor="title">Encabezado</label>
                 <br />
                 <input 
                     type="text" 
@@ -116,7 +116,7 @@ function Home(){
                     onChange={(e) => setTitle(e.target.value)}
                     value={title}
                 />
-                <label htmlFor="content">Content</label>
+                <label htmlFor="content">Contenido</label>
                 <br />
                 <textarea 
                     id="content" 

@@ -11,7 +11,7 @@ function Note({ note, onDelete, showDeleteButton, currentUserId }) {
                 <p className="note-title">{note.title}</p>
                 <div className="note-meta">
                     <span className="note-author">
-                        By: {note.author_username} {isOwnNote && "(You)"}
+                        De: {note.author_username} {isOwnNote && "(You)"}
                     </span>
                     <span className="note-date">{formattedDate}</span>
                 </div>
@@ -26,7 +26,7 @@ function Note({ note, onDelete, showDeleteButton, currentUserId }) {
                         onClick={() => onDelete(note.id)}
                         title="Only administrators can delete notes"
                     >
-                        Delete Note
+                        Eliminar nota
                     </button>
                 )}
             </div>
