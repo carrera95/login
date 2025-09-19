@@ -4,7 +4,7 @@ info_logger = logging.getLogger('notes_app.info')
 warning_logger = logging.getLogger('notes_app.warning')
 error_logger = logging.getLogger('notes_app.error')
 general_logger = logging.getLogger('notes_app')
-
+# Nice Logging manage
 def log_info(message, extra_data=None):
     """Log info level messages"""
     if extra_data:

@@ -36,6 +36,11 @@ class NoteListCreate(generics.ListCreateAPIView):
                     print(serializer.errors)
             except Exception as e:
                 log_error(f"Error creating note for user {self.request.user.username}", e)
+                    # If error response to react client (on every method that response to client)
+                    # return Response({
+                    #     'status': 'error', 
+                    #     'message': str(e)
+                    # }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
                 raise
 
 class NoteDelete(generics.DestroyAPIView):
@@ -65,6 +70,19 @@ class NoteDelete(generics.DestroyAPIView):
                         status=403
                     )
                 
+                    # Well done, try this standar:
+                    # If error
+                    # return Response({
+                    #     'status': 'error', 
+                    #     'message': str(e)
+                    # }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                    # If success
+                    # return Response({
+                    #     'status': 'Success',
+                    #     'message': 'Sources retrieved by level.',
+                    #     'data': serializer.data
+                    # }, status=status.HTTP_200_OK)
+                    #                 
                 # Get the note before deletion for logging
                 note = self.get_object()
                 note_info = {
@@ -82,7 +100,7 @@ class NoteDelete(generics.DestroyAPIView):
                 raise
 
 class CreateUserView(generics.CreateAPIView):
-    queryset = User.objects.all()
+    queryset = User.objects.all() # Why?
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
     
@@ -112,7 +130,7 @@ class CurrentUserView(APIView):
                     'is_superuser': request.user.is_superuser
                 }
                 log_debug(f"User info retrieved for {request.user.username}")
-                return Response(user_data)
+                return Response(user_data) # Do it standar
             except Exception as e:
                 log_error(f"Error retrieving user info for {request.user.username}", e)
                 raise

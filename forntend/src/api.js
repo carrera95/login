@@ -18,3 +18,6 @@ api.interceptors.request.use((config) => {
 )
 
 export default api;
+
+// Try with utils folder
+// src/utils/api.js

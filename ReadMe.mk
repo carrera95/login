@@ -19,10 +19,12 @@ To run the backend server:
 ## Frontend
 To run the frontend development server:
 
+// The name lol, next time change the 'mane'
 1.  Navigate to the `forntend` directory (Note that is `forntend` instead of `frontend`, i found it kinda funny, typo stays!):
     ```bash
     cd forntend
     ```
+// You forgot the 'npm install' command
 2.  Start the Vite/Next.js development server:
     ```bash
     npm run dev

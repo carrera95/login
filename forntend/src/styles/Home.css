@@ -1,5 +1,5 @@
 
-.top-left-link {
+.top-left-link { /* Just general comments */
   position: absolute;  /* take it out of normal flow */
   top: 10px;           /* distance from top */
   right: 10px;          /* distance from left */

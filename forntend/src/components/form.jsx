@@ -3,9 +3,9 @@ import api from '../api'
 import { useNavigate, Link } from 'react-router-dom'
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../constants'
 
-import "../styles/Form.css"
+import "../styles/Form.css" // Try with Muilabs
 import LoadingIndicator from './LoadingInd'
-
+// Keep the standard, file name is form.jsx, and component is Form
 function Form({ route, method, showRegisterLink, showLoginLink }) {        
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -18,11 +18,11 @@ function Form({ route, method, showRegisterLink, showLoginLink }) {
         setLoading(true);
         e.preventDefault();
 
-        try {
+        try { // Well done using 'api' 
             const res = await api.post(route, {username, password})
             if (method === "login") {
-                localStorage.setItem(ACCESS_TOKEN, res.data.access)
-                localStorage.setItem(REFRESH_TOKEN, res.data.refresh)
+                localStorage.setItem(ACCESS_TOKEN, res.data.access)  // Rename access->accessToken
+                localStorage.setItem(REFRESH_TOKEN, res.data.refresh)// Rename refresh->refreshToken
                 navigate('/')
             } else {
                 navigate('/login')

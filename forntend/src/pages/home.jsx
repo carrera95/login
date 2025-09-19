@@ -22,7 +22,7 @@ function Home(){
             .then((res) => {
                 setCurrentUser(res.data)
                 setIsAdmin(res.data.is_admin)
-                console.log("Current user:", res.data)
+                console.log("Current user:", res.data) // Just for delepment, never production
             })
             .catch((err) => console.log("Error fetching user:", err))
     }
@@ -90,7 +90,7 @@ function Home(){
                 {isAdmin && <p className="admin-badge">Administrador</p>}
             </div>
             
-            <div>
+            <div> // Apply some style
                 <h2>Notas</h2>
                 <p>Mostrando {notes.length} nota(s)</p>
                 {notes.map((note) => (

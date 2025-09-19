@@ -103,7 +103,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+} # Add a visual interface, like pgadmin
 
 
 # Password validation
@@ -150,5 +150,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
+# Well done by separate logging!!
 # Logging Configuration
-LOGGING = get_logging_config(BASE_DIR)
+LOGGING = get_logging_config(BASE_DIR) 

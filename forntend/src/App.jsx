@@ -12,7 +12,7 @@ function LogOut() {
   return <Navigate to="/login" />
 }
 
-function RegisterAndLogOut() {
+function RegisterAndLogOut() { // Do it in Logout component (create one)
   localStorage.clear()
   return <Register />
 }
